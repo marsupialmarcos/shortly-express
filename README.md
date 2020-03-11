@@ -12,22 +12,24 @@ While some aspects of the authentication system have been provided, you will nee
 
 **What's in this Repo**
 
-This repo contains a functional URL shortener designed as a single page app. It's built using Backbone.js on the client with a Node/Express-based server, which uses EJS for server-side templates.
+This repo contains a functional URL shortener designed as a single page app. It's built using [Backbone.js](https://backbonejs.org/) on the client with a Node/Express-based server, which uses [EJS](https://ejs.co/) for server-side templates.
 
-It uses MySQL, an open-source relational database management system (RDBMS).
+It uses [MySQL](https://www.mysql.com/), an open-source relational database management system (RDBMS).
 
-Server side, the repo also uses express 4. There are a few key differences between express 3 and 4, foremost that middleware is no longer included in the express module, but must be installed separately.
+Server side, the repo also uses [express 4](http://expressjs.com/). There are a few key differences between express 3 and 4, foremost that middleware is no longer included in the express module, but must be installed separately.
 
-Client side, the repo includes libraries like jQuery, underscore.js and Backbone.js. Templating on the client is handled via Handlebars.
+Client side, the repo includes libraries like [jQuery](https://jquery.com/), [underscore.js](https://underscorejs.org/) and [Backbone.js](https://backbonejs.org/). Templating on the client is handled via [Handlebars](http://handlebarsjs.com/).
 
-This repo includes some basic server specs using Mocha. It is your job to make all of them pass, but feel free to write additional tests to guide yourself. Enter npm test to run the tests.
+This repo includes some basic server specs using [Mocha](https://mochajs.org/). It is your job to make all of them pass, but feel free to write additional tests to guide yourself. Enter npm test to run the tests.
 
-Use nodemon so that the server automatically restarts when you make changes to your files. To see an example, use npm start, but see if you can improve on this.
+Use [nodemon](https://nodemon.io/) so that the server automatically restarts when you make changes to your files. To see an example, use *npm start*, but see if you can improve on this.
 
 **How to use the provided code**
 
-This repo contains many lines of provided code, and spending too much time reading this code will make it hard for you to complete the sprint. You should not need to inspect the client side code to complete the bare minimum requirements. You will need to use methods in server/models/ and server/lib/. Documentation for these methods has been provided in the docs/ directory - just open docs/index.html in your browser. Note: the documentation is generated as part of the postinstall npm script - so if you haven't run npm install yet, the docs will not be available.
+This repo contains many lines of provided code, and spending too much time reading this code will make it hard for you to complete the sprint. You **should not** need to inspect the client side code to complete the bare minimum requirements. You **will** need to use methods in server/models/ and server/lib/. Documentation for these methods has been provided in the docs/ directory - just open docs/index.html in your browser. Note: the documentation is generated as part of the postinstall npm script - so if you haven't run npm install yet, the docs will not be available.
+
 **Reference Material**
+
 * Express 4 API
 * Sessions and Security - this is a Rails resource, but it's a really good explanation.
 * Node cypto Module
@@ -63,36 +65,41 @@ Things to keep in mind:
 * Mount these two middleware functions in app.js so that they are executed for all requests received by your server.
 
 **Authenticated Routes**
+
 * Add a verifySession helper function to all server routes that require login, redirect the user to a login page as needed. Require users to log in to see shortened links and create new ones. Do NOT require the user to login when using a previously shortened link.
 * Give the user a way to log out. What will this need to do to the server session and the cookie saved to the client's browser?
 
 **Tests**
 
 Write at least 3 new meaningful tests inside of *test/ServerSpec.js*
+
 # Advanced Content
+
 Our advanced content is intended to throw you in over your head, requiring you to solve problems with very little support or oversight, much like you would as a mid or senior level engineer.
 
-Add error messages:
-Let your users know when they've entered incorrect credentials or fail to properly register for a user account.
-Convert your cookies to signed cookies.
-Now that you fully understand how to roll your own server-side session-based auth system, swap out the system you built for Passport.
-Use an OAuth provider strategy; login via your GitHub account.
-NOTE: Passport will conflict with any client-side auth system you've aleady implemented, so be ready to disable it.
+* Add error messages:
+  * Let your users know when they've entered incorrect credentials or fail to properly register for a user account.
+* Convert your cookies to signed cookies.
+* Now that you fully understand how to roll your own server-side session-based auth system, swap out the system you built for Passport.
+  * Use an [OAuth](https://en.wikipedia.org/wiki/OAuth) provider strategy; login via your GitHub account.
+  * NOTE: Passport will conflict with any client-side auth system you've aleady implemented, so be ready to disable it.
 
 # Nightmare Mode
+
 Build a front-end authentication system:
 Use an OAuth provider strategy; login via your GitHub account.
 Handle all login and signup from backbone instead of relying on server-side redirects and routes.
 Convert your server routes into API endpoints. You will need to deliver meaningful errors on the server side, and handle them gracefully on the client side.
 
 **Other Challenges**
+
 The following challenges are not core to the sprint but if you have time you can give them a try:
 
 * Add a (Backbone) router to move the user from page to page:
   * Using HTML5 pushstate, keep the URL in the address bar in sync with what page the user is viewing.
-  * A user should be able to copy a url from the address bar, and then re-enter it into a browser to get back to the original page. Ensure you have a reliable strategy for handling deep-linked routes on the server.
+  * A user should be able to copy a url from the address bar, and then re-enter it into a browser to get back to the original page. Ensure you have a reliable strategy for handling [deep-linked](https://en.wikipedia.org/wiki/Deep_linking) routes on the server.
 * Make your site prettier:
-  * Find an image used on the site of the original url and use that instead of the generic icon (hint: use a regular expression or a parser to analyze the HTML document). How will you store this new information?
+  * Find an image used on the site of the original url and use that instead of the generic icon (hint: use a regular expression or a [parser](https://stackoverflow.com/questions/7977945/html-parser-on-node-js) to analyze the HTML document). How will you store this new information?
 * Create a basic stats page for each link:
   * Show clicks by time grouped into 5 min intervals (displayed as a table is ok).
   * Add additional models, routes, views, templates as needed.
