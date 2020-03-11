@@ -86,10 +86,10 @@ Our advanced content is intended to throw you in over your head, requiring you t
 
 # Nightmare Mode
 
-Build a front-end authentication system:
-Use an OAuth provider strategy; login via your GitHub account.
-Handle all login and signup from backbone instead of relying on server-side redirects and routes.
-Convert your server routes into API endpoints. You will need to deliver meaningful errors on the server side, and handle them gracefully on the client side.
+* Build a front-end authentication system:
+  * Use an OAuth provider strategy; login via your GitHub account.
+  * Handle all login and signup from backbone instead of relying on server-side redirects and routes.
+  * Convert your server routes into API endpoints. You will need to deliver meaningful errors on the server side, and handle them gracefully on the client side.
 
 **Other Challenges**
 
